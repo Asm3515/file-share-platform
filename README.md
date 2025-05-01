@@ -1,7 +1,6 @@
 
 
 
-```markdown project="File-Sharing-Platform" file="README.md"
 # File Sharing Platform
 
 A secure, modern file sharing platform built with Next.js, MongoDB, and Vercel Blob. This platform allows users to upload, share, and manage files with granular access controls and robust security features.
@@ -44,8 +43,7 @@ A secure, modern file sharing platform built with Next.js, MongoDB, and Vercel B
    ```bash
    git clone https://github.com/asm3515/file-sharing-platform.git
    cd file-sharing-platform
-...
-```
+   ```
 
 2. Install dependencies:
 
