@@ -152,7 +152,7 @@ export function FileList({ files, onDelete, showOwner = true, isLoading = false 
 
   return (
     <>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {files.map((file) => (
           <Card key={file.id} className="group overflow-hidden">
             <CardHeader className="pb-2">

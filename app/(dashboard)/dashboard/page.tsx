@@ -101,8 +101,8 @@ export default function DashboardPage() {
       </div>
 
       {error && (
-        <Card className="border-red-200 bg-red-50 dark:bg-red-950 dark:border-red-800">
-          <CardContent className="pt-6 text-red-600 dark:text-red-400">{error}</CardContent>
+        <Card className="border-red-200 bg-red-50">
+          <CardContent className="pt-6 text-red-600">{error}</CardContent>
         </Card>
       )}
 

@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Shield, Upload, Download, Users, Heart } from "lucide-react"
+import { ArrowRight, Shield, Upload, Download, Users } from "lucide-react"
 
 export default function HomePage() {
   return (
@@ -112,9 +112,6 @@ export default function HomePage() {
       </main>
       <footer className="border-t bg-background py-6 md:py-8">
         <div className="container flex flex-col items-center justify-center gap-4 px-4 md:px-6">
-          <p className="flex items-center gap-1 text-center text-sm text-gray-500">
-            Made with <Heart className="h-4 w-4 fill-red-500 text-red-500" /> by Ajinkya
-          </p>
           <p className="text-center text-sm text-gray-500">
             &copy; {new Date().getFullYear()} File Sharing Platform. All rights reserved.
           </p>

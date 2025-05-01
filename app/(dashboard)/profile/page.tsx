@@ -112,8 +112,8 @@ export default function ProfilePage() {
                   variant="outline"
                   className={
                     session?.user?.role === UserRole.ADMIN
-                      ? "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200"
-                      : "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
+                      ? "bg-purple-100 text-purple-800"
+                      : "bg-blue-100 text-blue-800"
                   }
                 >
                   {session?.user?.role}
