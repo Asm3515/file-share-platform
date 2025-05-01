@@ -64,8 +64,8 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
   ]
 
   return (
-    <div className="hidden border-r bg-background md:block">
-      <ScrollArea className="h-full w-56 py-4">
+    <div className="hidden w-64 shrink-0 border-r bg-background md:block">
+      <ScrollArea className="h-full py-4">
         <SidebarNav items={items.filter((item) => !item.adminOnly || isAdmin)} />
       </ScrollArea>
     </div>
