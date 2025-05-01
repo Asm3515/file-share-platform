@@ -131,7 +131,7 @@ export function FileList({ files, onDelete, showOwner = true, isLoading = false 
 
   if (isLoading) {
     return (
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {[1, 2, 3].map((i) => (
           <Card key={i}>
             <CardHeader className="pb-2">
@@ -152,7 +152,7 @@ export function FileList({ files, onDelete, showOwner = true, isLoading = false 
 
   return (
     <>
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {files.map((file) => (
           <Card key={file.id} className="group overflow-hidden">
             <CardHeader className="pb-2">
@@ -203,7 +203,7 @@ export function FileList({ files, onDelete, showOwner = true, isLoading = false 
               </div>
             </CardHeader>
             <CardContent className="pb-2 cursor-pointer" onClick={() => handlePreview(file)}>
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between flex-wrap gap-2">
                 <Badge variant="outline" className={getAccessLevelColor(file.accessLevel)}>
                   {getAccessLevelIcon(file.accessLevel)}
                   <span className="ml-1">{file.accessLevel}</span>
@@ -215,15 +215,28 @@ export function FileList({ files, onDelete, showOwner = true, isLoading = false 
               <p className="text-xs text-muted-foreground">
                 Uploaded {formatDistanceToNow(new Date(file.createdAt), { addSuffix: true })}
               </p>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity"
-                onClick={() => handlePreview(file)}
-              >
-                <Eye className="mr-2 h-4 w-4" />
-                Preview
-              </Button>
+              <div className="flex ml-auto gap-1">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="opacity-0 group-hover:opacity-100 transition-opacity hidden sm:flex"
+                  onClick={() => handlePreview(file)}
+                >
+                  <Eye className="mr-2 h-4 w-4" />
+                  Preview
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="sm:hidden"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    handlePreview(file)
+                  }}
+                >
+                  <Eye className="h-4 w-4" />
+                </Button>
+              </div>
             </CardFooter>
           </Card>
         ))}

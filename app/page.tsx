@@ -11,7 +11,7 @@ export default function HomePage() {
             <span className="text-xl font-bold">File Sharing Platform</span>
           </div>
           <div className="flex items-center gap-2">
-            <Button asChild variant="ghost">
+            <Button asChild variant="ghost" className="hidden sm:inline-flex">
               <Link href="/login">Sign in</Link>
             </Button>
             <Button asChild>
@@ -33,14 +33,14 @@ export default function HomePage() {
                   easy collaboration.
                 </p>
               </div>
-              <div className="space-x-4">
-                <Button asChild size="lg">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-2 sm:space-x-4">
+                <Button asChild size="lg" className="w-full sm:w-auto">
                   <Link href="/register">
                     Get Started
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg">
+                <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
                   <Link href="/login">Sign in</Link>
                 </Button>
               </div>
@@ -49,7 +49,7 @@ export default function HomePage() {
         </section>
         <section className="w-full bg-gray-50 py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
-            <div className="mx-auto grid max-w-5xl items-center gap-6 lg:grid-cols-3">
+            <div className="mx-auto grid max-w-5xl items-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
               <div className="flex flex-col justify-center space-y-4 rounded-lg border bg-background p-6 shadow-sm">
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <Upload className="h-6 w-6" />
@@ -68,7 +68,7 @@ export default function HomePage() {
                   <p className="text-gray-500">Control who can access your files with granular permissions.</p>
                 </div>
               </div>
-              <div className="flex flex-col justify-center space-y-4 rounded-lg border bg-background p-6 shadow-sm">
+              <div className="flex flex-col justify-center space-y-4 rounded-lg border bg-background p-6 shadow-sm sm:col-span-2 lg:col-span-1">
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <Download className="h-6 w-6" />
                 </div>
@@ -112,6 +112,9 @@ export default function HomePage() {
       </main>
       <footer className="border-t bg-background py-6 md:py-8">
         <div className="container flex flex-col items-center justify-center gap-4 px-4 md:px-6">
+          <p className="flex items-center gap-1 text-center text-sm text-muted-foreground">
+            Made with <span className="text-red-500">❤</span> by Ajinkya
+          </p>
           <p className="text-center text-sm text-gray-500">
             &copy; {new Date().getFullYear()} File Sharing Platform. All rights reserved.
           </p>

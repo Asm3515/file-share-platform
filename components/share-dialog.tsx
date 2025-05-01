@@ -128,7 +128,7 @@ export function ShareDialog({ file, open, onOpenChange }: ShareDialogProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="max-w-md w-[95vw] sm:w-full">
         <DialogHeader>
           <DialogTitle>Share "{file?.fileName}"</DialogTitle>
           <DialogDescription>Share this file with other users by email</DialogDescription>
@@ -158,7 +158,7 @@ export function ShareDialog({ file, open, onOpenChange }: ShareDialogProps) {
               <datalist id="users-list">
                 {users.map((user) => (
                   <option key={user.id} value={user.email}>
-                    {user.fullName}
+                    {user.name}
                   </option>
                 ))}
               </datalist>
@@ -197,7 +197,7 @@ export function ShareDialog({ file, open, onOpenChange }: ShareDialogProps) {
           {sharedUsers.length > 0 && (
             <div className="space-y-2">
               <Label>Currently shared with</Label>
-              <div className="space-y-2 rounded-md border p-2">
+              <div className="space-y-2 rounded-md border p-2 max-h-[30vh] overflow-y-auto">
                 {sharedUsers.map((user) => (
                   <div key={user.id} className="flex items-center justify-between">
                     <div>
@@ -213,8 +213,11 @@ export function ShareDialog({ file, open, onOpenChange }: ShareDialogProps) {
             </div>
           )}
         </div>
-        <DialogFooter>
-          <Button onClick={handleShare} disabled={isLoading || !email}>
+        <DialogFooter className="flex flex-col sm:flex-row gap-2">
+          <Button variant="outline" className="w-full sm:w-auto" onClick={() => onOpenChange(false)}>
+            Cancel
+          </Button>
+          <Button onClick={handleShare} disabled={isLoading || !email} className="w-full sm:w-auto">
             {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             Share
           </Button>

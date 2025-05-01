@@ -109,7 +109,7 @@ export default function UploadPage() {
   }
 
   return (
-    <div className="mx-auto max-w-2xl">
+    <div className="mx-auto w-full max-w-2xl">
       <h1 className="mb-6 text-2xl font-bold">Upload File</h1>
 
       <Card>
@@ -126,7 +126,7 @@ export default function UploadPage() {
           )}
 
           <div
-            className={`flex flex-col items-center justify-center rounded-lg border-2 border-dashed p-12 text-center transition-colors ${
+            className={`flex flex-col items-center justify-center rounded-lg border-2 border-dashed p-6 sm:p-12 text-center transition-colors ${
               isDragging ? "border-primary bg-primary/10" : ""
             } ${selectedFile ? "border-primary bg-primary/5" : "border-gray-300"}`}
             onDrop={handleDrop}
