@@ -44,7 +44,7 @@ export function ShareDialog({ file, open, onOpenChange }: ShareDialogProps) {
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch("/api/admin/users")
+      const response = await fetch("/api/users")
       if (!response.ok) {
         throw new Error("Failed to fetch users")
       }
@@ -77,9 +77,9 @@ export function ShareDialog({ file, open, onOpenChange }: ShareDialogProps) {
 
     try {
       // Find user by email
-      const user = users.find((u) => u.email === email)
+      const user = users.find((u) => u.email.toLowerCase() === email.toLowerCase())
       if (!user) {
-        throw new Error("User not found")
+        throw new Error("User not found. Please check the email address.")
       }
 
       const response = await fetch(`/api/files/${file.id}/share`, {
@@ -103,6 +103,7 @@ export function ShareDialog({ file, open, onOpenChange }: ShareDialogProps) {
       fetchSharedUsers()
     } catch (error) {
       setError(error.message || "An error occurred")
+      console.error("Share error:", error)
     } finally {
       setIsLoading(false)
     }
@@ -145,8 +146,23 @@ export function ShareDialog({ file, open, onOpenChange }: ShareDialogProps) {
             </Alert>
           )}
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" placeholder="user@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <Label htmlFor="email">User</Label>
+            <div className="relative">
+              <Input
+                id="email"
+                placeholder="Type email address..."
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                list="users-list"
+              />
+              <datalist id="users-list">
+                {users.map((user) => (
+                  <option key={user.id} value={user.email}>
+                    {user.fullName}
+                  </option>
+                ))}
+              </datalist>
+            </div>
           </div>
           <div className="space-y-2">
             <Label>Permissions</Label>
