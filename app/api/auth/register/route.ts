@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import { hash } from "bcrypt"
+import { hash } from "bcryptjs" // Changed from bcrypt to bcryptjs
 import clientPromise from "@/lib/mongodb"
 import { UserRole } from "@/lib/models"
 

@@ -68,9 +68,9 @@
     "@auth/core": "latest",
     "nodemailer": "latest",
     "mongodb": "latest",
+    "@vercel/blob": "latest",
     "next-auth": "latest",
-    "bcryptjs": "latest",
-    "@vercel/blob": "latest"
+    "bcryptjs": "latest"
   },
   "devDependencies": {
     "@types/node": "^22",
